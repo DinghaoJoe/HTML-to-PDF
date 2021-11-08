@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+	<button id="renderPdf">DOWNLOAD PDF</button>
+	<div id="body-box"></div>
+
+	<script type="text/javascript" src="./js/html2canvas.js"></script>
+	<script type="text/javascript" src="./js/jsPdf.debug.js"></script>
+
+	<script src="./js/fintermdata.json"></script>
+
+
+	<script type="text/javascript">
+		getHtml()
+		
+		function getHtml() {
+			const info = [211030706, 210910596, 210370179, 210050254, 210870560, 210890665, 210900805, 210870618, 210880721,
+				210050255, 210370741, 210890667, 210880722
+			]
+			let data = []
+			fintermdata.map(e => {
+				info.map(item => {
+					if (item == e.projectid) {
+						data.push(e)
+					}
+				})
+			})
+			data.map((item, index) => {
+				var node = document.createElement("div");
+				node.setAttribute("class", `main-body body-${index}`);
+				node.innerHTML = `<div class="certificate-id">Certificate ID: ${item.projectid}</div>
+				<div class="certificate-info">
+					<div>This certificate is presented to</div>
+					<div style="color: #ed6e00; padding: 140px 0">${item.name}</div>
+					<div>for the development achievement in</div>
+					<div class="info-other">${item.projectname}</div>
+					<div style="padding-top: 5px">project of</div>
+					<div class="info-other">${item.anchor}</div>
+				</div>
+				<div class="certificate-date">Certificate date: November, 2021</div>`
+				document.getElementById('body-box').appendChild(node)
+			})
+		}
+
+		var downPdf = document.getElementById('renderPdf')
+		
+		let index = 0
+
+		downPdf.onclick = function() {
+			html2canvas(document.getElementsByClassName(`body-${index}`), {
+				onrendered: function(canvas) {
+					index += 1
+					//返回图片URL，参数：图片格式和清晰度(0-1)
+					var pageData = canvas.toDataURL('image/jpeg', 1.0)
+					//方向默认竖直，尺寸ponits，【2480, 3508]
+					var pdf = new jsPDF('', 'pt', [2480, 3508])
+					pdf.addImage(pageData, 'JPEG', 0, 0, 2480, 3508 );
+					pdf.save('content.pdf');
+				}
+			})
+		}
+	</script>
+</body>
