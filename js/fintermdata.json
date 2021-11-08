@@ -634,7 +634,7 @@ var fintermdata = [
     "communityname": "ROS",
     "projectid": "210910794",
     "repolink": "https://gitlab.summer-ospp.ac.cn/summer2021/210910794",
-    "projectname": "Reduce ROS2 Nodes and Determinism 【精简ROS2节点和检测过程】··",
+    "projectname": "Reduce ROS2 Nodes and Determinism",
     "tutor": "Steven Macenski",
     "name": "戈振鹏",
     "anchor": "ros"
@@ -664,7 +664,7 @@ var fintermdata = [
     "communityname": "Apache APISIX",
     "projectid": "210050254",
     "repolink": "https://gitlab.summer-ospp.ac.cn/summer2021/210050254",
-    "projectname": "Using the Form Configuration Plugin in Dashboard 【在 Dashboard 中使用表单配置插件】",
+    "projectname": "Using the Form Configuration Plugin in Dashboard",
     "tutor": "琚致远",
     "name": "Ayush Das",
     "anchor": "apacheapisix"
@@ -4254,7 +4254,7 @@ var fintermdata = [
     "communityname": "ROS",
     "projectid": "210910596",
     "repolink": "https://gitlab.summer-ospp.ac.cn/summer2021/210910596",
-    "projectname": "Assisted Teleop【辅助遥控】",
+    "projectname": "Assisted Teleop",
     "tutor": "Steven Macenski",
     "name": "Anushree Sabnis",
     "anchor": "ros"
